@@ -1,0 +1,17 @@
+npm config set registry https://registry.npmjs.org/
+node v20.12.1
+
+ep2 - Agile
+~~~~~~~~~~~
+
+ep3 - Catalog service
+~~~~~~~~~~~~~~~~~~~~~
+- create project
+    - npm i express typescript ts-node
+    - npm i nodemon @types/node @types/express -D 
+    - npm i typescript ts-node
+    - tsc --init
+- Identify System Boundaries: DDD (Domain Driven Design)
+- tsconfig changes
+- build Catalog service stucture
+
