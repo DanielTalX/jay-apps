@@ -21,3 +21,7 @@ ep4 - test with jest
 - npm init jest@latest
 - config jest.config.ts
 
+ep5-6 - API Routes + test
+~~~~~~~~~~~~~~~~~~~~~~~~~
+- npm i class-transformer class-validator
+
