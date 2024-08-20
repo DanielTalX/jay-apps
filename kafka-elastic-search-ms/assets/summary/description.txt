@@ -3,7 +3,6 @@ node v20.12.1
 
 ep2 - Agile
 ~~~~~~~~~~~
-
 ep3 - Catalog service
 ~~~~~~~~~~~~~~~~~~~~~
 - create project
@@ -14,4 +13,11 @@ ep3 - Catalog service
 - Identify System Boundaries: DDD (Domain Driven Design)
 - tsconfig changes
 - build Catalog service stucture
+
+ep4 - test with jest
+~~~~~~~~~~~~~~~~~~~~
+- https://jestjs.io/docs/getting-started
+- npm i @faker-js/faker @types/jest @types/rosie @types/supertest jest rosie supertest ts-jest -D
+- npm init jest@latest
+- config jest.config.ts
 
