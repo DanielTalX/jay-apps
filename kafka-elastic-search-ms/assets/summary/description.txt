@@ -31,3 +31,8 @@ ep7 - Clean architecture before
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 - https://github.com/jnguyen095/clean-code/blob/master/Clean.Code.A.Handbook.of.Agile.Software.Craftsmanship.pdf
 
+ep8 - Clean architecture
+~~~~~~~~~~~~~~~~~~~~~~~~
+- building the basic stucture:
+    - controllers, entities, interactors, interfaces, repositories, routes
+
