@@ -25,3 +25,9 @@ ep5-6 - API Routes + test
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 - npm i class-transformer class-validator
 
+ep7 - Clean architecture before
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- https://blog.cleancoder.com/ - by Robert C. Martin (Uncle Bob)
+- https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+- https://github.com/jnguyen095/clean-code/blob/master/Clean.Code.A.Handbook.of.Agile.Software.Craftsmanship.pdf
+
