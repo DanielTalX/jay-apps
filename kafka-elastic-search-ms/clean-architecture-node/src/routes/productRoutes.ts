@@ -2,9 +2,14 @@ import express from "express";
 import { ProductRepository } from "../repositories/productRepository";
 import { ProductInteractor } from "../interactors/productInteractor";
 import { ProductController } from "../controllers/productController";
+import { Mailer } from "../external-libraries/mailer";
+import { MessageBroker } from "../external-libraries/messageBroker";
+
 
 const repository = new ProductRepository();
-const interactor = new ProductInteractor(repository);
+const mailer = new Mailer();
+const broker = new MessageBroker();
+const interactor = new ProductInteractor(repository, mailer, broker);
 const controller = new ProductController(interactor);
 
 const router = express.Router();
