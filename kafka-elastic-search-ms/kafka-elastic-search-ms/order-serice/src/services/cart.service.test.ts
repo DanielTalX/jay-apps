@@ -18,7 +18,7 @@ describe("cartService", () => {
     const mockCart = {
       title: "smart phone",
       amount: 1200,
-    };
+    } as any;
 
     jest.spyOn(Repository.CartRepository, "createCart").mockImplementationOnce(() =>
       Promise.resolve({
