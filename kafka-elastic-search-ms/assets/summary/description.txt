@@ -60,4 +60,5 @@ ep11-14 - OrderService
     - npm run db:migrate
 - validate request
 - adding error & logger utils
+- duplicate error & logger utils to CatalogService
 
