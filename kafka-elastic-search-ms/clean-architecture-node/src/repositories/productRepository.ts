@@ -2,7 +2,9 @@ import { Pool } from "pg";
 import { Product } from "../entities/Product";
 import { IProductRepository } from "../interfaces/IProductRepository";
 import { pgClient } from "../dbConnection";
+import { injectable } from "inversify";
 
+@injectable()
 export class ProductRepository implements IProductRepository {
   private client: Pool;
 

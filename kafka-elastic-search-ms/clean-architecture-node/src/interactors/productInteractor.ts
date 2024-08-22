@@ -1,18 +1,21 @@
+import { inject, injectable } from "inversify";
 import { Product } from "../entities/Product";
 import { IMailer } from "../interfaces/IMailer";
 import { IMessageBroker } from "../interfaces/IMessageBroker";
 import { IProductInteractor } from "../interfaces/IProductInteractor";
 import { IProductRepository } from "../interfaces/IProductRepository";
+import { INTERFACE_TYPE } from "../utils";
 
+@injectable()
 export class ProductInteractor implements IProductInteractor {
   private repository: IProductRepository;
   private mailer: IMailer;
   private broker: IMessageBroker;
 
   constructor(
-    repository: IProductRepository,
-    mailer: IMailer,
-    broker: IMessageBroker
+    @inject(INTERFACE_TYPE.ProductRepository) repository: IProductRepository,
+    @inject(INTERFACE_TYPE.Mailer) mailer: IMailer,
+    @inject(INTERFACE_TYPE.MessageBroker) broker: IMessageBroker
   ) {
     this.repository = repository;
     (this.mailer = mailer), (this.broker = broker);

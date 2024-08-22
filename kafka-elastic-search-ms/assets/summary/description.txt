@@ -36,4 +36,5 @@ ep8 - Clean architecture
 - building the basic stucture:
     - controllers, entities, interactors, interfaces, repositories, routes
 - adding interfaces for mailer & message broker
+- adding dependency injection
 
