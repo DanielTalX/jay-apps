@@ -19,6 +19,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+      "@sinclair/typebox": "^0.32.34",
+      "ajv": "^8.17.1",
       "cors": "^2.8.5",
       "dotenv": "^16.4.5",
       "drizzle-orm": "^0.32.0",

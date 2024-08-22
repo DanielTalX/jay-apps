@@ -1,9 +1,11 @@
+import { CartEditRequestInput } from "../dtos/cartRequest.do";
 import { CartRepositoryType } from "../types/repository.type";
 
 export const CreateCart = async (
-  input: any,
+  input: CartEditRequestInput,
   repo: CartRepositoryType
 ) => {
+  // make a sync call to catalog ms
   return await repo.createCart(input);
 };
 

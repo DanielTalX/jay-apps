@@ -51,10 +51,12 @@ ep10 - add ORM to CatalogService
     4. Tip: Explore how you can extend the ORM with scalable connection pooling, global caching, and real-time database events. Read: https://pris.ly/beyond-the-orm
 - npx prisma migrate dev --name init
 
-ep11-12 - OrderService
+ep11-13 - OrderService
 ~~~~~~~~~~~~~~~~~~~~~~
 - setup
 - ORM - drizzle:
     - https://orm.drizzle.team/docs/get-started-postgresql
     - npm run db:generate
     - npm run db:migrate
+- validate request
+
