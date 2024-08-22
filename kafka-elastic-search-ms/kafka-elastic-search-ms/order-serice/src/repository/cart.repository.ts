@@ -1,8 +1,15 @@
+import { DB } from "../db/db.connection";
+import { carts } from "../db/schema";
 import { CartRepositoryType } from "../types/repository.type";
 
 // declare repository type
 const createCart = async (input: any): Promise<any> => {
-  return { message: "createCart"}
+  const result = await DB.insert(carts)
+    .values({ customerId: 123})
+    .returning({ cartId: carts.id })
+
+  console.log("createCart result = ", result);
+  return result;
 };
 
 const findCart = async (id: number): Promise<any> => {
