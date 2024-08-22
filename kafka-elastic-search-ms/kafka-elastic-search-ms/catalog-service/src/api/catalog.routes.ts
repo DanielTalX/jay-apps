@@ -47,8 +47,8 @@ router.patch("/products/:id",
 
 router.get("/products",
   async (req: Request, res: Response, next: NextFunction) => {
-    const limit = Number(req.query["limit"]);
-    const offset = Number(req.query["offset"]);
+    const limit = Number(req.query["limit"] ?? 10);
+    const offset = Number(req.query["offset"] ?? 0);
     try {
       const data = await catalogService.getProducts(limit, offset);
       return res.status(200).json(data);
