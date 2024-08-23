@@ -1,9 +1,16 @@
 import { Request, Response, NextFunction } from "express";
-import { CreateVandorInput } from "../dto";
-import { Vandor } from "../models";
+import { CreateVendorInput } from "../dto";
+import { Vendor } from "../models";
 import { GeneratePassword, GenerateSalt } from "../utility";
 
-export const CreateVandor = async (
+export const FindVendorByEmail = async (email: string) => {
+  return await Vendor.findOne({email})
+}
+export const FindVendorByID = async (id: string) => {
+  return await Vendor.findById(id);
+}
+
+export const Createvendor = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -11,12 +18,12 @@ export const CreateVandor = async (
   const {
     name, address, pincode, foodType,
     email, password, ownerName, phone,
-  } = <CreateVandorInput>req.body;
+  } = <CreateVendorInput>req.body;
 
-  const existingVandor = await Vandor.findOne({ email: email });
+  const existingVendor = await FindVendorByEmail(email);
 
-  if (existingVandor !== null) {
-    return res.json({ message: "A vandor is exist with this email ID" });
+  if (existingVendor !== null) {
+    return res.json({ message: "A vendor is exist with this email ID" });
   }
 
   //generate a salt
@@ -24,7 +31,7 @@ export const CreateVandor = async (
   const userPassword = await GeneratePassword(password, salt);
 
   // encrypt the password using the salt
-  const createdVandor = await Vandor.create({
+  const createdVendor = await Vendor.create({
     name: name,
     address: address,
     pincode: pincode,
@@ -39,17 +46,32 @@ export const CreateVandor = async (
     coverImages: [],
   });
 
-  return res.json(createdVandor);
+  return res.json(createdVendor);
 };
 
-export const GetVanndors = async (
+export const GetVendors = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {};
+) => {
+  const vendors = await Vendor.find()
+  if(vendors !== null){
+      return res.json(vendors)
+  }
+  return res.json({"message": "Vendors data not available"})
+};
 
-export const GetVandorByID = async (
+export const GetVendorByID = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {};
+) => {
+  const vendorId = req.params.id;
+  const vendors = await FindVendorByID(vendorId);
+
+  if(vendors !== null){
+    return res.json(vendors)
+  }
+
+  return res.json({"message": "Vendors data not available"})
+};

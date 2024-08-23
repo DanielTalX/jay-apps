@@ -2,8 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose'; 
 
-
-import { AdminRoute, VandorRoute } from './routes'
+import { AdminRoute, VendorRoute } from './routes'
 import { MONGO_URI } from './config';
 
 const app = express();
@@ -13,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 
 app.use('/admin', AdminRoute);
-app.use('/vandor', VandorRoute)
+app.use('/vendor', VendorRoute)
 
 
 mongoose.connect(MONGO_URI, {
@@ -27,8 +26,6 @@ mongoose.connect(MONGO_URI, {
 
 
 app.listen(8000, () => {
-
     console.clear()
     console.log('App is listening to the port 8000')
-
 })

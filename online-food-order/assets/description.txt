@@ -1,4 +1,9 @@
 npm config set registry https://registry.npmjs.org/
 
 - ep1 - setup backend
+- ep2 
+    - vendor controller & admin controller
+    - add auth middleware
+    - add json web token
+    - add user field to Global.Express.Request
 
