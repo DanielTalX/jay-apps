@@ -7,15 +7,37 @@ import { CartRequestInput, CartRequestSchema } from "../dtos/cartRequest.do";
 const router = express.Router();
 const repo = repository.CartRepository;
 
+const authMiddleware = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  // jwt
+  const isValidUser = true;
+  if (!isValidUser) {
+    return res.status(403).json({ error: "authorization error" });
+  }
+
+  next();
+};
 
 router.post("/cart",
+  authMiddleware,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const error = ValidateRequest<CartRequestInput>(req.body, CartRequestSchema);
+      const error = ValidateRequest<CartRequestInput>(
+        req.body,
+        CartRequestSchema
+      );
 
-      if(error) return res.status(404).json({ error });
-      
-      const response = await service.CreateCart(req.body, repo);
+      if (error) {
+        return res.status(404).json({ error });
+      }
+
+      const response = await service.CreateCart(
+        req.body as CartRequestInput,
+        repo
+      );
       return res.status(200).json(response);
     } catch (error) {
       return res.status(404).json({ error });

@@ -61,4 +61,5 @@ ep11-14 - OrderService
 - validate request
 - adding error & logger utils
 - duplicate error & logger utils to CatalogService
+- working on cart service & cart repository
 

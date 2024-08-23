@@ -1,25 +1,41 @@
-import { CartEditRequestInput } from "../dtos/cartRequest.do";
-import { CartRepositoryType } from "../types/repository.type";
+import { CartLineItem } from "../db/schema";
+import { CartEditRequestInput, CartRequestInput } from "../dtos/cartRequest.do";
+import { CartRepositoryType } from "../repository/cart.repository";
+import { logger, NotFoundError } from "../utils";
+import { GetProductDetails } from "../utils/broker";
 
 export const CreateCart = async (
-  input: CartEditRequestInput,
+  input: CartRequestInput,
   repo: CartRepositoryType
 ) => {
-  // make a sync call to catalog ms
-  return await repo.createCart(input);
+  //  make a call to our catalog microservice
+  // synchronize call
+  const product = await GetProductDetails(input.productId);
+  logger.info(product);
+  if (product.stock < input.qty) {
+    throw new NotFoundError("product is out of stock");
+  }
+
+  return await repo.createCart(input.customerId, {
+    productId: product.id,
+    price: product.price.toString(),
+    qty: input.qty,
+    itemName: product.name,
+    variant: product.variant,
+  } as CartLineItem);
 };
 
 export const GetCart = async (id: number, repo: CartRepositoryType) => {
   const data = await repo.findCart(id);
   if (!data) {
-    throw new Error("cart not found");
+    throw new NotFoundError("cart not found");
   }
 
   return data;
 };
 
 export const EditCart = async (
-  input: any,
+  input: CartEditRequestInput,
   repo: CartRepositoryType
 ) => {
   const data = await repo.updateCart(input.id, input.qty);
