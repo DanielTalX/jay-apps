@@ -48,4 +48,24 @@ ep3 - Vendor and Food Functionality
         🔒 Authentication Considerations: Understanding when to implement authentication is crucial for maintaining security while allowing flexibility in accessing certain functionalities.
         🌐 File Handling Proficiency: Mastering file handling in Node.js (with Multer) opens up possibilities for future features, such as user-uploaded content, enhancing the app’s capabilities.
         📅 Future Development Roadmap: Setting clear next steps for additional features (like shopping and user modules) ensures continuous improvement and keeps the development process organized.
-    
+ep4 - Code refactoring & Shopping section
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Summary
+    In this episode, we refactor the code and implement the shopping section, enabling users to browse food catalogs from vendors based on their location.
+- Highlights
+    🔍 Refactored code for better organization and maintainability.
+    📦 Created separate service files for Express and MongoDB connections.
+    🍽️ Implemented routes for the shopping section to access food catalogs.
+    📊 Developed a controller to handle food availability queries based on pin codes.
+    ⏱️ Added functionality to filter foods available within 30 minutes.
+    🏪 Retrieved top restaurants based on user location and availability.
+    ✅ Successfully tested API calls using Postman for functionality validation.
+- Key Insights
+    🔄 Refactoring is crucial for maintaining a clean codebase, improving the project’s scalability. By organizing code into services, we enhance readability and make future updates easier.
+    📍 Location-based services play a significant role in food delivery apps, allowing users to find nearby options quickly, thereby improving user experience.
+    ⚙️ Implementing controllers for different sections of the application helps manage the complexity, making it easier to handle various functionalities like food availability and restaurant listings.
+    ⏲️ The feature to filter food based on preparation time enhances convenience for users, catering to their immediate dining needs.
+    🌟 Focusing on top-rated restaurants ensures that users receive quality options, thereby increasing user satisfaction and engagement with the app.
+    📮 Testing with Postman allows developers to validate API endpoints effectively, ensuring that all functionalities are working as intended before deployment.
+    📈 As the project evolves, incorporating additional features such as an OTP verification system for user accounts will further enhance security and user trust in the application.
+
