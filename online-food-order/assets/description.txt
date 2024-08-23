@@ -68,4 +68,24 @@ ep4 - Code refactoring & Shopping section
     🌟 Focusing on top-rated restaurants ensures that users receive quality options, thereby increasing user satisfaction and engagement with the app.
     📮 Testing with Postman allows developers to validate API endpoints effectively, ensuring that all functionalities are working as intended before deployment.
     📈 As the project evolves, incorporating additional features such as an OTP verification system for user accounts will further enhance security and user trust in the application.
+ep5 - customer module - account creation, OTP verification
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Summary
+    In this episode, we dive into the customer module, focusing on account creation, OTP verification, and refining validations to enhance the food order app’s backend.
+- Highlights
+    🚀 Customer Module Focus: We’re building the customer onboarding process.
+    🛒 Account Creation: Implementing customer account creation with validations.
+    🔑 OTP Verification: Adding OTP mechanisms for secure account verification.
+    📝 Code Refactoring: Improving code structure for better validation handling.
+    🔒 Authentication: Ensuring secure access to routes with authentication.
+    📦 Profile Management: Enabling customer profile retrieval and updates.
+    ✅ Future Enhancements: Next episode will cover cart and order functionalities.
+- Key Insights
+    📈 Customer Onboarding: A seamless onboarding process is crucial for user retention and satisfaction, enhancing the overall user experience.
+    🔐 Security Measures: Implementing OTP verification adds a layer of security, preventing unauthorized access to user accounts.
+    🛠️ Code Structure: Refactoring code not only improves readability but also makes it easier to maintain and scale the application in the future.
+    📊 User Data Management: Efficient profile management helps in personalizing user experiences and streamlining interactions.
+    🚀 Progressive Development: Starting with a monolithic approach allows for foundational understanding before transitioning to microservices for scalability.
+    📅 Future-Proofing: Planning for future functionalities during initial development ensures that the application can grow without extensive rework.
+    🔍 Continuous Improvement: Regular updates and refinements based on user feedback will keep the application relevant and efficient.
 
