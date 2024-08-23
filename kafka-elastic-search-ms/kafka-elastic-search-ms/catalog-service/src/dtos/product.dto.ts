@@ -9,7 +9,6 @@ export class CreateProductRequest {
   description!: string;
 
   @IsNumber()
-  @Min(1)
   price!: number;
 
   @IsNumber()

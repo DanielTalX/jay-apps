@@ -51,7 +51,7 @@ ep10 - add ORM to CatalogService
     4. Tip: Explore how you can extend the ORM with scalable connection pooling, global caching, and real-time database events. Read: https://pris.ly/beyond-the-orm
 - npx prisma migrate dev --name init
 
-ep11-14 - OrderService
+ep11-17 - OrderService
 ~~~~~~~~~~~~~~~~~~~~~~
 - setup
 - ORM - drizzle:
@@ -62,4 +62,5 @@ ep11-14 - OrderService
 - adding error & logger utils
 - duplicate error & logger utils to CatalogService
 - working on cart service & cart repository
+- implement kafka
 
