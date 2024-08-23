@@ -1,0 +1,4 @@
+npm config set registry https://registry.npmjs.org/
+
+- ep1 - setup backend
+
