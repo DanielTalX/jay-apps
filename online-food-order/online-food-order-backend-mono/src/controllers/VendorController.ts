@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { EditVendorInput, VendorLoginInput } from "../dto";
+import { CreateFoodInput, EditVendorInput, VendorLoginInput } from '../dto';
+import { Food } from '../models';
 import { GenerateSignature, ValidatePassword } from "../utility";
 import { FindVendorByID, FindVendorByEmail } from "./AdminController";
 
@@ -71,6 +72,24 @@ export const UpdateVendorProfile = async (
   return res.json({ message: "Unable to Update vendor profile " });
 };
 
+export const UpdateVendorCoverImage = async (req: Request,res: Response, next: NextFunction) => {
+  const user = req.user;
+
+   if(user){
+     const vendor = await FindVendorByID(user._id);
+
+     if(vendor !== null){
+          const files = req.files as [Express.Multer.File];
+          const images = files.map((file: Express.Multer.File) => file.filename);
+          vendor.coverImages.push(...images);
+          const saveResult = await vendor.save();
+          return res.json(saveResult);
+     }
+
+  }
+  return res.json({'message': 'Unable to Update vendor profile '})
+}
+
 export const UpdateVendorService = async (
   req: Request,
   res: Response,
@@ -95,3 +114,51 @@ export const UpdateVendorService = async (
   }
   return res.json({ message: "Unable to Update vendor profile " });
 };
+
+export const AddFood = async (req: Request, res: Response, next: NextFunction) => {
+
+  const user = req.user;
+
+  const { name, description, category, foodType, readyTime, price } = <CreateFoodInput>req.body;
+
+  if(user){
+     const vendor = await FindVendorByID(user._id);
+
+     if(vendor !== null){
+          const files = req.files as [Express.Multer.File];
+
+          const images = files.map((file: Express.Multer.File) => file.filename);
+
+          const food = await Food.create({
+              vendorId: vendor._id,
+              name: name,
+              description: description,
+              category: category,
+              price: price,
+              rating: 0,
+              readyTime: readyTime,
+              foodType: foodType,
+              images: images
+          })
+
+          vendor.foods.push(food);
+          const result = await vendor.save();
+          return res.json(result);
+     }
+
+  }
+  return res.json({'message': 'Unable to Update vendor profile '})
+}
+
+export const GetFoods = async (req: Request, res: Response, next: NextFunction) => {
+  const user = req.user;
+
+  if(user){
+     const foods = await Food.find({ vendorId: user._id});
+
+     if(foods !== null){
+          return res.json(foods);
+     }
+  }
+  return res.json({'message': 'Foods not found!'})
+}

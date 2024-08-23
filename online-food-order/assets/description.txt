@@ -1,9 +1,51 @@
 npm config set registry https://registry.npmjs.org/
 
-- ep1 - setup backend
-- ep2 
+ep1 - setup backend
+~~~~~~~~~~~~~~~~~~~~~
+ep2  - Application Pipeline and Vendor Functionality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     - vendor controller & admin controller
     - add auth middleware
     - add json web token
     - add user field to Global.Express.Request
-
+    - Summary
+        In this video, we expand our Node.js food order app by enhancing the admin controller functionality for managing restaurant vendors, including creating, retrieving, and validating vendors.
+    - Highlights
+        🛠️ Enhanced admin controller functionality for vendor management.
+        🔒 Implemented password encryption using bcrypt for security.
+        📊 Successfully retrieved and displayed all vendors in the database.
+        🗑️ Cleared duplicate vendor entries from the database for accurate results.
+        🔍 Added vendor retrieval by ID with error handling for better user experience.
+        🔑 Implemented login functionality for vendors with validation checks.
+        📜 Introduced JWT for secure authentication and authorization mechanisms.
+    - Key Insights
+        🔧 Code Reusability: The refactoring of vendor retrieval functions highlights the importance of reusing code to reduce redundancy, making the application more maintainable.
+        🔐 Security Focus: Integrating bcrypt for password encryption emphasizes the need for security in applications handling sensitive user data, ensuring safer logins.
+        📈 Database Management: Using tools like Studio 3T for MongoDB management streamlines the process of database manipulation, enhancing developer efficiency.
+        ⚙️ Error Handling: Adding a structured error handling system improves application robustness and user experience by providing meaningful feedback.
+        🔄 Authentication: Implementing JWT for managing user sessions introduces a scalable authentication mechanism, crucial for applications with multiple user roles.
+        📊 Vendor Profile Management: The ability to update vendor profiles dynamically facilitates better management of vendor services, enhancing user interactions.
+        🚀 Future Scalability: The groundwork laid for vendor management systems and authentication opens pathways for future features like food listings and profile picture uploads, setting a solid foundation for growth.
+ep3 - Vendor and Food Functionality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - food crud
+    - upload images
+    - Summary
+        In this episode, we expand the online order app by adding food functionality and integrating image uploads for vendors and food items.
+    - Highlights
+        🚀 Added food functionality to the vendor profile.
+        🥗 Created a food model to associate food items with specific vendors.
+        📸 Integrated image upload functionality using Multer.
+        🛠️ Updated the vendor controller for food item management.
+        🔄 Successfully tested food creation via Postman.
+        📁 Implemented cover image upload for vendor profiles.
+        ✅ Ensured seamless data handling between MongoDB and the application.
+    - Key Insights
+        📦 Dynamic Food Management: The integration of food functionality allows vendors to manage their offerings effectively, enhancing user experience. This modular approach benefits scalability as more features can be added later.
+        🔗 Vendor-Food Association: Linking food items to specific vendors aids in organizing the menu, making it easier for customers to find what they want, thereby improving order accuracy and satisfaction.
+        📈 User Interface Enhancement: The ability to upload images for food items and vendor profiles adds a visual appeal, which can increase customer engagement and trust in the application.
+        🔄 Postman Testing: Using Postman for testing ensures that the API endpoints work as intended, allowing developers to catch errors early in the development process.
+        🔒 Authentication Considerations: Understanding when to implement authentication is crucial for maintaining security while allowing flexibility in accessing certain functionalities.
+        🌐 File Handling Proficiency: Mastering file handling in Node.js (with Multer) opens up possibilities for future features, such as user-uploaded content, enhancing the app’s capabilities.
+        📅 Future Development Roadmap: Setting clear next steps for additional features (like shopping and user modules) ensures continuous improvement and keeps the development process organized.
+    
