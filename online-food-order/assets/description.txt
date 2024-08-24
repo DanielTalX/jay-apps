@@ -88,4 +88,24 @@ ep5 - customer module - account creation, OTP verification
     🚀 Progressive Development: Starting with a monolithic approach allows for foundational understanding before transitioning to microservices for scalability.
     📅 Future-Proofing: Planning for future functionalities during initial development ensures that the application can grow without extensive rework.
     🔍 Continuous Improvement: Regular updates and refinements based on user feedback will keep the application relevant and efficient.
+ep6 - Work on the order section & deploy to Heroku
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Summary
+    In this tutorial, we deploy a Node.js Food Order System on Heroku and work on the order section, preparing for future microservices architecture.
+- Highlights
+    🚀 Deployment on Heroku: Learn how to deploy a Node.js project on Heroku to make it accessible online.
+    📦 TypeScript Configuration: Understand the importance of compiling TypeScript to ES5/ES6 for production.
+    🐳 Dockerization: Get introduced to Docker and how to create containers for your application and its dependencies.
+    🔄 CI/CD Integration: Overview of Continuous Integration and Deployment practices for efficient code updates.
+    🛠️ Order Functionality: Implement create, get, and get by ID functionalities for managing food orders.
+    🔍 Database Configuration: Set up a MongoDB connection for storing order data securely.
+    🔄 Next Steps: Prepare for upcoming episodes focusing on microservices architecture.
+- Key Insights
+    🌐 Heroku Deployment Process: Deploying on Heroku simplifies the process of making applications accessible, though it’s crucial to understand production configurations beforehand.
+    📜 TypeScript vs. JavaScript: Compiling TypeScript into JavaScript is vital for performance and compatibility in production environments, ensuring smoother execution.
+    🐳 Benefits of Docker: Docker allows for consistent environments across development and production, making it easier to manage dependencies and application setup.
+    ⚙️ DevOps Culture: Understanding DevOps practices enhances collaboration between development and operations teams, leading to smoother deployments and updates.
+    📊 Order Management Logic: Creating a robust order management system involves handling user requests, calculating totals, and ensuring data integrity.
+    🔒 Secure Database Connections: Using a cloud database like MongoDB ensures that your application can scale while maintaining security and performance.
+    🔜 Microservices Transition: Planning for a shift to microservices architecture can improve scalability and maintainability of applications in the long run.
 
