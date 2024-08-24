@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { CreateFoodInput, EditVendorInput, VendorLoginInput } from '../dto';
-import { Food, Order } from '../models';
+import { CreateFoodInput, CreateOfferInputs, EditVendorInput, VendorLoginInput } from '../dto';
+import { Food, Order, Offer } from '../models';
 import { GenerateSignature, ValidatePassword } from "../utility";
 import { FindVendorByID, FindVendorByEmail } from "./AdminController";
 
@@ -97,16 +97,17 @@ export const UpdateVendorService = async (
 ) => {
   const user = req.user;
 
-  const { foodType, name, address, phone } = <EditVendorInput>req.body;
+  const { lat, lng} = req.body;
 
   if (user) {
     const existingVendor = await FindVendorByID(user._id);
 
     if (existingVendor !== null) {
-      existingVendor.name = name;
-      existingVendor.address;
-      existingVendor.phone = phone;
-      existingVendor.foodType = foodType;
+      existingVendor.serviceAvailable = !existingVendor.serviceAvailable;
+      if(lat && lng){
+          existingVendor.lat = lat;
+          existingVendor.lng = lng;
+      }
       const saveResult = await existingVendor.save();
 
       return res.json(saveResult);
@@ -221,4 +222,117 @@ export const ProcessOrder = async (req: Request, res: Response, next: NextFuncti
   }
 
   return res.json({ message: 'Unable to process order'});
+}
+
+export const GetOffers = async (req: Request, res: Response, next: NextFunction) => {
+
+  const user = req.user;
+
+  if(user){
+      let currentOffer = Array();
+
+      const offers = await Offer.find().populate('vendors');
+
+      if(offers){
+
+          offers.map(item => {
+
+              if(item.vendors){
+                  item.vendors.map(vendor => {
+                      if(vendor._id.toString() === user._id){
+                          currentOffer.push(item);
+                      }
+                  })
+              }
+
+              if(item.offerType === "GENERIC"){
+                  currentOffer.push(item)
+              }
+
+          })
+
+      }
+
+    return res.status(200).json(currentOffer);
+  }
+
+  return res.json({ message: 'Offers Not available'});
+}
+
+
+export const AddOffer = async (req: Request, res: Response, next: NextFunction) => {
+
+  const user = req.user;
+
+  if(user){
+      const { title, description, offerType, offerAmount, pincode,
+      promocode, promoType, startValidity, endValidity, bank, bins, minValue, isActive } = <CreateOfferInputs>req.body;
+
+      const vendor = await FindVendorByID(user._id);
+
+      if(vendor){
+
+          const offer = await Offer.create({
+              title,
+              description,
+              offerType,
+              offerAmount,
+              pincode,
+              promoType,
+              startValidity,
+              endValidity,
+              bank,
+              isActive,
+              minValue,
+              vendor:[vendor]
+          })
+
+          console.log(offer);
+
+          return res.status(200).json(offer);
+      }
+  }
+
+  return res.json({ message: 'Unable to add Offer!'});
+}
+
+export const EditOffer = async (req: Request, res: Response, next: NextFunction) => {
+
+  const user = req.user;
+  const offerId = req.params.id;
+
+  if(user){
+      const { title, description, offerType, offerAmount, pincode,
+      promocode, promoType, startValidity, endValidity, bank, bins, minValue, isActive } = <CreateOfferInputs>req.body;
+
+      const currentOffer = await Offer.findById(offerId);
+
+      if(currentOffer){
+
+          const vendor = await FindVendorByID(user._id);
+
+          if(vendor){
+
+              currentOffer.title = title,
+              currentOffer.description = description,
+              currentOffer.offerType = offerType,
+              currentOffer.offerAmount = offerAmount,
+              currentOffer.pincode = pincode,
+              currentOffer.promoType = promoType,
+              currentOffer.startValidity = startValidity,
+              currentOffer.endValidity = endValidity,
+              currentOffer.bank = bank,
+              currentOffer.isActive = isActive,
+              currentOffer.minValue = minValue;
+
+              const result = await currentOffer.save();
+
+              return res.status(200).json(result);
+          }
+
+      }
+
+  }
+
+  return res.json({ message: 'Unable to add Offer!'});    
 }

@@ -126,4 +126,24 @@ ep7 - building a powerful cart system
     ✍️ Error Handling Focus: Emphasizing error handling in code development improves reliability and user trust, ensuring smoother application performance.
     📊 Vendor Features: Incorporating vendor functionalities like order processing is essential for facilitating business operations, promoting efficiency in order management.
     📅 Future Enhancements: Planning for additional features like offers and transaction tracking indicates a commitment to continuous improvement and user satisfaction.
+ep8 - promotions for vendors customers, secure transactions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Summary
+    In this episode, we added promotions for vendors and customers, ensuring secure transactions and streamlined payments before placing orders.
+- Highlights
+    🎉 Vendors can create specific offers.
+    🏷️ Admins can add general promotions.
+    🛒 Customers can view and apply both types of offers.
+    ✅ Transactions are validated before order placement.
+    💳 Payment details are securely saved in the transaction model.
+    🚚 Delivery personnel assignment is part of the order creation process.
+    🔜 Future episodes will explore microservices architecture.
+- Key Insights
+    🎈 Vendor-Specific Promotions: Allowing vendors to create their own offers enhances their marketing capabilities and encourages customer loyalty.
+    📊 Admin-Controlled Offers: Admins managing general promotions can ensure a cohesive brand strategy and drive overall sales across the platform.
+    👀 Customer Engagement: By allowing customers to apply both vendor-specific and general offers, the app increases customer engagement and satisfaction.
+    🔒 Secure Transactions: Validating transactions before order placement not only protects customers but also builds trust in the payment process.
+    🗂️ Transaction Management: Storing payment details in the transaction model simplifies record-keeping and enhances the customer experience during future transactions.
+    🚦 Order Creation Workflow: Integrating delivery personnel assignment into the order creation process optimizes logistics and ensures timely deliveries.
+    🔄 Transition to Microservices: Future episodes will shift to a microservices architecture, paving the way for scalability and better management of app components.
 
